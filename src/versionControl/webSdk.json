@@ -1,0 +1,59 @@
+{
+  "callId": "0ae253c2151b4c6caa6e4cccac0db89e",
+  "errorCode": 0,
+  "apiVersion": 2,
+  "statusCode": 200,
+  "statusReason": "OK",
+  "time": "2025-02-26T14:29:50.145Z",
+  "baseDomain": "gaspar.clean.vctest",
+  "dataCenter": "eu1",
+  "trustedSiteURLs": [
+    "*gaspar.clean.vctest/*",
+    "gaspar.clean.vctest/*",
+    "gaspar.vctest/*",
+    "*.gaspar.vctest/*"
+  ],
+  "tags": [],
+  "description": "",
+  "captchaProvider": "Google",
+  "settings": {
+    "CNAME": "",
+    "shortURLDomain": "",
+    "shortURLRedirMethod": "js",
+    "encryptPII": true
+  },
+  "siteGroupConfig": {
+    "members": [
+      "4_Bpue7GjT6NXLwIer13NPLQ",
+      "4_ZEJte0Ai8SgSiLwjrLXYsQ"
+    ],
+    "enableSSO": false
+  },
+  "trustedShareURLs": [
+    "bit.ly/*",
+    "fw.to/*",
+    "shr.gs/*",
+    "vst.to/*",
+    "socli.ru/*",
+    "s.gigya-api.cn/*"
+  ],
+  "enableDataSharing": true,
+  "isCDP": false,
+  "globalConf": "\r\n{\r\n    // teste A comma-delimited list of provider names to enable.\r\n    enabledProviders: '*',\r\n\r\n    // Define the language of Gigya's user interface and error message.\r\n    lang: 'en',\r\n\r\n    // Bind globally to events.\r\n    customEventMap: {\r\n        eventMap: [{\r\n            events: '*',\r\n            args: [function(e) {\r\n                return e;\r\n            }],\r\n            method: function(e) {\r\n                if (e.fullEventName === 'login') {\r\n                    // Handle login event here.\r\n                } else if (e.fullEventName === 'logout') {\r\n                    // Handle logout event here.\r\n                }\r\n            }\r\n        }]\r\n    }\r\n}\r\n",
+  "invisibleRecaptcha": {
+    "SiteKey": "test",
+    "Secret": "test"
+  },
+  "recaptchaV2": {
+    "SiteKey": "test",
+    "Secret": "test"
+  },
+  "funCaptcha": {
+    "SiteKey": "",
+    "Secret": ""
+  },
+  "customAPIDomainPrefix": "",
+  "jwtKeyVersion": 2,
+  "enableHSTS": false,
+  "context": "{\"id\":\"webSdk\",\"targetApiKey\":\"4_qrielmhEi_ntXZH_cXfrSA\"}"
+}

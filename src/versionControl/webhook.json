@@ -1,0 +1,25 @@
+{
+  "callId": "31dd21cd90d8487a9810808eb0823783",
+  "context": "{\"id\":\"webhook\",\"targetApiKey\":\"4_qrielmhEi_ntXZH_cXfrSA\"}",
+  "errorCode": 0,
+  "apiVersion": 2,
+  "statusCode": 200,
+  "statusReason": "OK",
+  "time": "2025-02-26T14:29:50.204Z",
+  "webhooks": [
+    {
+      "url": "https://www.teste.com/",
+      "name": "teste",
+      "active": true,
+      "events": [
+        "accountCreated"
+      ],
+      "useXfCredentials": false,
+      "headers": [],
+      "version": "3.0",
+      "product": "UserManagement",
+      "id": "5f060a06-3ba6-4be3-8aca-b3c948a21eb5",
+      "include": []
+    }
+  ]
+}
