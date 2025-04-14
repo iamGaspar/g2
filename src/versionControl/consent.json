@@ -1,0 +1,10 @@
+{
+  "callId": "4140a53ea4ff4254a75ba66fec0c51df",
+  "context": "{\"id\":\"consent_consentStatement_get\",\"targetApiKey\":\"4_IPOAc95FA8i7Rg7H2c4VEg\"}",
+  "errorCode": 0,
+  "apiVersion": 2,
+  "statusCode": 200,
+  "statusReason": "OK",
+  "time": "2025-04-14T09:10:01.471Z",
+  "preferences": {}
+}
