@@ -1,0 +1,46 @@
+{
+  "callId": "325bb22930d44d7da7ffc065a0caa94c",
+  "context": "{\"id\":\"consent_consentStatement_get\",\"targetApiKey\":\"4_QwkHadMVg-KI68XYT2I3vA\"}",
+  "errorCode": 0,
+  "apiVersion": 2,
+  "statusCode": 200,
+  "statusReason": "OK",
+  "time": "2025-04-15T14:22:28.484Z",
+  "preferences": {
+    "terms.consent1": {
+      "isActive": false,
+      "isMandatory": true,
+      "langs": [
+        "en",
+        "ca"
+      ],
+      "consentVaultRetentionPeriod": 36,
+      "enforceLocaleReconsent": true,
+      "writeAccess": "clientModify",
+      "legalStatements": {
+        "en": {
+          "currentDocVersion": 0,
+          "minDocVersion": 0,
+          "versions": {
+            "1": {
+              "purpose": "consent1 test1",
+              "documentUrl": "https://www.google.pt",
+              "LegalStatementStatus": "Draft"
+            }
+          }
+        },
+        "ca": {
+          "currentDocVersion": 0,
+          "minDocVersion": 0,
+          "versions": {
+            "0": {
+              "purpose": "test0",
+              "documentUrl": "https://www.google.pt",
+              "LegalStatementStatus": "Draft"
+            }
+          }
+        }
+      }
+    }
+  }
+}
