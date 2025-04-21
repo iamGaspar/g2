@@ -1,0 +1,245 @@
+{
+  "capabilities": "none",
+  "settings": "disableGooglePlusLoginScope,linkedIn_Oidc",
+  "providers": {
+    "facebook": {
+      "app": {
+        "appID": ""
+      },
+      "settings": {
+        "enableNativeSdk": false,
+        "canvasURL": "",
+        "enableWebsite": false,
+        "enableRelationships": false,
+        "enableReligion": false,
+        "enableBirthday": false,
+        "enableCity": false,
+        "enableFriendsList": false,
+        "enableAboutMe": false,
+        "enableEducationHistory": false,
+        "enableWorkHistory": false,
+        "enableHometown": false,
+        "enableGender": false,
+        "useCNAME": false,
+        "httpsOnly": false
+      }
+    },
+    "twitter": {
+      "app": {
+        "consumerKey": ""
+      },
+      "settings": {
+        "includeEmail": false,
+        "useCNAME": false,
+        "httpsOnly": false
+      }
+    },
+    "googleplus": {
+      "app": {
+        "consumerKey": ""
+      },
+      "settings": {
+        "enableNativeSdk": false,
+        "useCNAME": false,
+        "httpsOnly": false
+      }
+    },
+    "linkedin": {
+      "app": {
+        "apiKey": ""
+      },
+      "settings": {
+        "useCNAME": false,
+        "httpsOnly": false
+      }
+    },
+    "apple": {
+      "app": {
+        "ServiceID": ""
+      },
+      "settings": {
+        "keyId": "",
+        "teamId": "",
+        "useCNAME": false,
+        "httpsOnly": false
+      }
+    },
+    "yahoo": {
+      "app": {
+        "appID": "",
+        "consumerKey": ""
+      },
+      "settings": {
+        "useCNAME": false,
+        "httpsOnly": false
+      }
+    },
+    "microsoft": {
+      "app": {
+        "clientID": ""
+      },
+      "settings": {
+        "useCNAME": false,
+        "httpsOnly": false
+      }
+    },
+    "foursquare": {
+      "app": {
+        "clientID": ""
+      },
+      "settings": {
+        "useCNAME": false,
+        "httpsOnly": false
+      }
+    },
+    "renren": {
+      "app": {
+        "consumerKey": ""
+      },
+      "settings": {
+        "useCNAME": false,
+        "httpsOnly": false
+      }
+    },
+    "qq": {
+      "app": {
+        "appID": ""
+      },
+      "settings": {
+        "useCNAME": false,
+        "httpsOnly": false
+      }
+    },
+    "sina": {
+      "app": {
+        "appKey": ""
+      },
+      "settings": {
+        "useCNAME": false,
+        "httpsOnly": false
+      }
+    },
+    "vkontakte": {
+      "app": {
+        "apiKey": ""
+      },
+      "settings": {
+        "useCNAME": false,
+        "httpsOnly": false
+      }
+    },
+    "mixi": {
+      "app": {
+        "consumerKey": "teste",
+        "consumerSecret": "teste",
+        "identificationKey": "teste"
+      },
+      "settings": {
+        "useCNAME": false,
+        "httpsOnly": true
+      }
+    },
+    "yahoojapan": {
+      "app": {
+        "appID": ""
+      },
+      "settings": {
+        "useCNAME": false,
+        "httpsOnly": false
+      }
+    },
+    "spiceworks": {
+      "app": {
+        "consumerKey": ""
+      },
+      "settings": {
+        "useCNAME": false,
+        "httpsOnly": false
+      }
+    },
+    "odnoklassniki": {
+      "app": {
+        "publicKey": "teste",
+        "secretKey": "teste",
+        "applicationID": "teste"
+      },
+      "settings": {
+        "useCNAME": false,
+        "httpsOnly": true
+      }
+    },
+    "amazon": {
+      "app": {
+        "accessKey": ""
+      },
+      "settings": {
+        "useCNAME": false,
+        "httpsOnly": false
+      }
+    },
+    "xing": {
+      "app": {
+        "accessKeyID": ""
+      },
+      "settings": {
+        "useCNAME": false,
+        "httpsOnly": false
+      }
+    },
+    "wechat": {
+      "app": {
+        "appID": ""
+      },
+      "settings": {
+        "useCNAME": false,
+        "httpsOnly": false
+      }
+    },
+    "paypal": {
+      "app": {
+        "clientID": ""
+      },
+      "settings": {
+        "useCNAME": false,
+        "httpsOnly": true
+      }
+    },
+    "line": {
+      "app": {
+        "clientID": ""
+      },
+      "settings": {
+        "useCNAME": false,
+        "httpsOnly": false
+      }
+    },
+    "naver": {
+      "app": {
+        "clientID": ""
+      },
+      "settings": {
+        "useCNAME": false,
+        "httpsOnly": false
+      }
+    },
+    "kakao": {
+      "app": {
+        "clientID": ""
+      },
+      "settings": {
+        "useCNAME": false,
+        "httpsOnly": false
+      }
+    },
+    "docCheck": {
+      "app": {
+        "clientID": ""
+      },
+      "settings": {
+        "Language": "com",
+        "useCNAME": false,
+        "httpsOnly": false
+      }
+    }
+  }
+}

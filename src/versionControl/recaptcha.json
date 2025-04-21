@@ -1,0 +1,64 @@
+{
+  "recaptchaConfig": [
+    {
+      "Type": 1,
+      "Key": "testefinal",
+      "Secret": "testeFinal"
+    },
+    {
+      "Type": 3,
+      "Key": "testeFinal",
+      "Secret": "testeFinal"
+    },
+    {
+      "Type": 2,
+      "Key": "testeFinal",
+      "Secret": "testeFinal"
+    },
+    {
+      "Type": 4,
+      "Key": "",
+      "Secret": ""
+    },
+    {
+      "Type": 10,
+      "Key": "",
+      "Secret": "",
+      "Data": "{\"enable\":false,\"requireCaptchaOnRegistration\":false,\"requireCaptchaOnResetPassword\":false,\"requireCaptchaOnOTP\":false}"
+    }
+  ],
+  "securityPolicies": {
+    "accountLockout": {
+      "failedLoginThreshold": 0,
+      "lockoutTimeSec": 300,
+      "failedLoginResetSec": 0
+    },
+    "captcha": {
+      "failedLoginThreshold": 0
+    },
+    "ipLockout": {
+      "hourlyFailedLoginThreshold": 0,
+      "lockoutTimeSec": 0
+    },
+    "passwordChangeInterval": 0,
+    "passwordHistorySize": 0,
+    "riskAssessmentWithReCaptchaV3": false,
+    "riskAssessmentWithTransUnion": true,
+    "sendUnknownLocationNotification": false,
+    "signDeviceId": "js_latest"
+  },
+  "registrationPolicies": {
+    "requireCaptcha": true,
+    "requireSecurityQuestion": true,
+    "requireLoginID": true,
+    "enforceCoppa": true
+  },
+  "riskProvidersConfig": {
+    "subscriberId": "testeFinal",
+    "account": "testeFinal",
+    "password": "testeFinal",
+    "environment": 0,
+    "integrationPoint": "testeFinal",
+    "data": null
+  }
+}

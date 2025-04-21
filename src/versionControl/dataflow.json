@@ -1,0 +1,241 @@
+{
+  "resultCount": 3,
+  "result": [
+    {
+      "apiKey": "4_3zsvwuLLkw5lIWpNyFDvug",
+      "siteId": 992976294236,
+      "id": "956ad5eb77254b36b83dc666f3f61406",
+      "name": "Trigger REST API from record.evaluate",
+      "status": "draft",
+      "description": "Empty Flow",
+      "steps": [
+        {
+          "id": "2. field.rename",
+          "type": "field.rename",
+          "params": {
+            "fields": [
+              {
+                "sourceField": "email",
+                "targetField": "_email"
+              }
+            ]
+          },
+          "next": [
+            "3. accounts.search "
+          ]
+        },
+        {
+          "id": "3. accounts.search ",
+          "type": "record.evaluate",
+          "params": {
+            "script": "ZnVuY3Rpb24gcHJvY2VzcyhyZWNvcmQsIGN0eCwgbG9nZ2VyLCBuZXh0KSB7DQogICAgbG9nZ2VyLmluZm8oInJlY29yZCIsIHJlY29yZCk7DQogICAgdmFyIHJlcXVlc3QgPSBjdHguZ2V0UGFyYW1ldGVyKCJHaWd5YVByb3h5Iik7DQogICAgLy9idWlsZCB0aGUgcmVxdWVzdCBwYXJhbXMNCiAgICByZXF1ZXN0LnNldEFwaU1ldGhvZCgiYWNjb3VudHMuc2VhcmNoIik7DQogICAgIHJlcXVlc3Quc2V0UGFyYW0oInF1ZXJ5IiwgInNlbGVjdCAqIGZyb20gYWNjb3VudHMgd2hlcmUgKHByb2ZpbGUuZW1haWwgPSciKyByZWNvcmQuX2VtYWlsICsiJykgT1IgKHByb2ZpbGUuZW1haWwgQ09OVEFJTlMgJyIrcmVjb3JkLl9lbWFpbCsiJykgT1IgKGxvZ2luSURzLmVtYWlscyA9JyIrcmVjb3JkLl9lbWFpbCsiJykgT1IgKGxvZ2luSURzLmVtYWlscyBDT05UQUlOUyAnIityZWNvcmQuX2VtYWlsKyInKSBPUiAobG9naW5JRHMudW52ZXJpZmllZEVtYWlscyA9ICciK3JlY29yZC5fZW1haWwrIicpIE9SIChsb2dpbklEcy51bnZlcmlmaWVkRW1haWxzIENPTlRBSU5TICciK3JlY29yZC5fZW1haWwrIicpIE9SIChlbWFpbHMudW52ZXJpZmllZCA9ICciK3JlY29yZC5fZW1haWwrIicpIE9SIChlbWFpbHMudW52ZXJpZmllZCBDT05UQUlOUyAnIityZWNvcmQuX2VtYWlsKyInKSIpOw0KICAgIHJlcXVlc3Quc2V0UGFyYW0oImFwaUtleSIsIjNfNXdMaUc5anpudktoX0NUa1MtZEhINFBIX3hHeVpubW1lYU16TUJfeWgxQ1Y2YWdSOU04WTdsUzRtVXRSX1puZiIpOw0KICAgDQogICAgdmFyIHNlYXJjaFJlc3BvbnNlID0gcmVxdWVzdC5zZW5kKCk7DQogICAgDQogICAgLy9sb2dnZXIuaW5mbygic2VhcmNoUmVzcG9uc2UiLCBzZWFyY2hSZXNwb25zZSk7DQogICAgDQogICAgaWYgKHNlYXJjaFJlc3BvbnNlLmdldEVycm9yQ29kZSgpID09PSAwKSB7IC8vIFN1Y2Nlc3MNCiAgICANCiAgICAgICAgdmFyIGRhdGEgPSBzZWFyY2hSZXNwb25zZS5nZXREYXRhKCk7DQogICAgICAgIGxldCBucmVjID0ge307DQogICAgICAgIHZhciByZXN1bHRzID0gZGF0YS5yZXN1bHRzOw0KICAgICAgICAvL2xvZ2dlci5pbmZvKCJyZXN1bHRzIixyZXN1bHRzKTsNCiAgICANCiAgICAgICAgICAgIC8vIEFsbCBnb29kLCBwYXJzZSByZXNwb25zZQ0KICAgICANCiAgICAgICAgdmFyIGFzSnNvbiA9IEpTT04ucGFyc2UoZGF0YSk7DQogICAgICAgIC8vbG9nZ2VyLmluZm8oImFzSnNvbiIsIEpTT04uc3RyaW5naWZ5KGFzSnNvbikpOw0KICAgICAgICBucmVjLlVJRHMgPSBbXTsNCiAgICAgICAgZm9yKGxldCBpPTA7IGk8YXNKc29uLnRvdGFsQ291bnQ7IGkrKyl7DQogICAgICAgICAgICBucmVjLlVJRHMucHVzaChhc0pzb24ucmVzdWx0c1tpXS5VSUQpOyAgIA0KICAgICAgICAgICAgbnJlYy5lbWFpbCA9IGFzSnNvbi5yZXN1bHRzW2ldLnByb2ZpbGUuZW1haWw7DQogICAgICAgIH0NCiAgICAgICAgaWYobnJlYy5VSURzLmxlbmd0aD4xKSBucmVjLnR3b0FjY291bnRFbnRyaWVzID0gdHJ1ZTsNCiAgICAgICAgZWxzZSBucmVjLnR3b0FjY291bnRFbnRyaWVzID0gZmFsc2U7DQogICAgICAgIA0KICAgICAgICANCiAgICAgICAgLy9sb2dnZXIuaW5mbygiYXNKc29uIiwgSlNPTi5zdHJpbmdpZnkoYXNKc29uKSk7DQogICAgICAgIGxvZ2dlci5pbmZvKCJucmVjIiwgbnJlYyk7DQogICAgICAgIHJldHVybiBucmVjOw0KICAgIH0NCiAgICANCiAgICBlbHNlICAvLyBFcnJvcg0KICAgIGxvZ2dlci5lcnJvcigiR290IGVycm9yIGZyb20gYXVkaXQgc2VhcmNoIiwgc2VhcmNoUmVzcG9uc2UuZ2V0RXJyb3JNZXNzYWdlKCkpOw0KfQ==",
+            "ECMAScriptVersion": "12",
+            "notifyLastRecord": false
+          },
+          "next": [
+            "4. file.format.json"
+          ]
+        },
+        {
+          "id": "0. amazon.s3",
+          "type": "datasource.read.amazon.s3",
+          "params": {
+            "bucketName": "gigya-etl-eu",
+            "accessKey": "AKIAJYPKIUMOHZOH4QZA",
+            "secretKey": "********",
+            "region": "not specified",
+            "objectKeyPrefix": "0781392d-b08f-4ee0-8e40-ef926698c00b/it/MSCND-22060/",
+            "fileNameRegex": "IT_Accounts_All.csv"
+          },
+          "next": [
+            "1. file.parse.dsv"
+          ]
+        },
+        {
+          "id": "1. file.parse.dsv",
+          "type": "file.parse.dsv",
+          "params": {
+            "columnSeparator": ";",
+            "fileCharset": "auto-detect",
+            "inferTypes": false,
+            "addFilename": false
+          },
+          "next": [
+            "2. field.rename"
+          ]
+        },
+        {
+          "id": "4. file.format.json",
+          "type": "file.format.json",
+          "params": {
+            "fileName": "IT_accountsEntries_${now}.json",
+            "maxFileSize": 5000,
+            "createEmptyFile": false
+          },
+          "next": [
+            "5. amazon.s3"
+          ]
+        },
+        {
+          "id": "5. amazon.s3",
+          "type": "datasource.write.amazon.s3",
+          "params": {
+            "bucketName": "gigya-etl-eu",
+            "accessKey": "AKIAJYPKIUMOHZOH4QZA",
+            "secretKey": "********",
+            "region": "not specified",
+            "objectKeyPrefix": "0781392d-b08f-4ee0-8e40-ef926698c00b/it/MSCND-22060/"
+          }
+        }
+      ],
+      "version": 1,
+      "createTime": "2025-01-09T10:01:54.788Z",
+      "updateTime": "2025-01-09T10:01:54.788Z",
+      "updatedByName": "Tiago Gaspar",
+      "updatedByEmail": "tiago.gaspar@sap.com"
+    },
+    {
+      "apiKey": "4_3zsvwuLLkw5lIWpNyFDvug",
+      "siteId": 992976294236,
+      "id": "d94cb64274c74118b6fce99af565c031",
+      "name": "Dataflow to get accounts with wrong data structure",
+      "status": "draft",
+      "description": "Check if data fields are arrays",
+      "steps": [
+        {
+          "id": "gigya.account",
+          "type": "datasource.read.gigya.account",
+          "params": {
+            "select": "UID, profile.email, data",
+            "from": "accounts",
+            "deltaField": "lastUpdatedTimestamp",
+            "batchSize": 300,
+            "maxConcurrency": 8,
+            "where": "data.child is not NULL OR data.pet is not NULL OR data.areaOfInterest is not NULL OR data.externalApplication is not NULL",
+            "keepFieldNamesWithDotAsIs": false
+          },
+          "next": [
+            "record.evaluate"
+          ]
+        },
+        {
+          "id": "record.evaluate",
+          "type": "record.evaluate",
+          "params": {
+            "script": "ZnVuY3Rpb24gcHJvY2VzcyhyZWNvcmQsIGN0eCwgbG9nZ2VyLCBuZXh0KSB7DQogICAgbGV0IHBldE5vdEFycmF5ID0gZmFsc2U7DQogICAgbGV0IGNoaWxkTm90QXJyYXkgPSBmYWxzZTsNCiAgICBsZXQgYW9pTm90QXJyYXkgPSBmYWxzZTsNCiAgICBsZXQgZXh0QXBwTm90QXJyYXkgPSBmYWxzZTsNCiAgICBsZXQgcGV0QU9JTm90QXJyYXkgPSBmYWxzZTsNCiAgICBsZXQgY2hpbGRBT0lOb3RBcnJheSA9IGZhbHNlOw0KICAgIGxldCBleHRBcHBDb2RlTm90U3RyaW5nID0gZmFsc2U7DQogICAgDQogICAgbGV0IG5yZWMgPSB7fTsNCiAgICBucmVjLlVJRCA9IHJlY29yZC5VSUQ7DQogICAgaWYocmVjb3JkLnByb2ZpbGUpew0KICAgICAgICBpZihyZWNvcmQucHJvZmlsZS5lbWFpbCl7DQogICAgICAgICAgICBucmVjLmVtYWlsID0gcmVjb3JkLnByb2ZpbGUuZW1haWw7DQogICAgICAgIH0NCiAgICB9DQogICAgbnJlYy5kYXRhID0ge307DQogICAgDQogICAgaWYocmVjb3JkLmRhdGEucGV0KXsNCiAgICAgICAgaWYoIUFycmF5LmlzQXJyYXkocmVjb3JkLmRhdGEucGV0KSl7DQogICAgICAgICAgICBwZXROb3RBcnJheSA9IHRydWU7DQogICAgICAgICAgICBucmVjLnBldE5vdEFycmF5ID0gcGV0Tm90QXJyYXk7DQogICAgICAgIH0gZWxzZSB7DQogICAgICAgICAgICBmb3IobGV0IGk9MDsgaSA8IHJlY29yZC5kYXRhLnBldC5sZW5ndGg7IGkrKyl7DQogICAgICAgICAgICAgICAgaWYocmVjb3JkLmRhdGEucGV0W2ldLmFyZWFPZkludGVyZXN0ICYmICFBcnJheS5pc0FycmF5KHJlY29yZC5kYXRhLnBldFtpXS5hcmVhT2ZJbnRlcmVzdCkpew0KICAgICAgICAgICAgICAgICAgICBwZXRBT0lOb3RBcnJheSA9IHRydWU7DQogICAgICAgICAgICAgICAgICAgIG5yZWMucGV0QU9JTm90QXJyYXkgPSBwZXRBT0lOb3RBcnJheTsNCiAgICAgICAgICAgICAgICB9DQogICAgICAgICAgICB9DQogICAgICAgIH0NCiAgICB9DQogICAgaWYocmVjb3JkLmRhdGEuY2hpbGQpew0KICAgICAgICBpZighQXJyYXkuaXNBcnJheShyZWNvcmQuZGF0YS5jaGlsZCkpew0KICAgICAgICAgICAgY2hpbGROb3RBcnJheSA9IHRydWU7DQogICAgICAgICAgICBucmVjLmNoaWxkTm90QXJyYXkgPSBjaGlsZE5vdEFycmF5Ow0KICAgICAgICB9IGVsc2Ugew0KICAgICAgICAgICAgZm9yKGxldCBpPTA7IGkgPCByZWNvcmQuZGF0YS5jaGlsZC5sZW5ndGg7IGkrKyl7DQogICAgICAgICAgICAgICAgaWYocmVjb3JkLmRhdGEuY2hpbGRbaV0uYXJlYU9mSW50ZXJlc3QgJiYgIUFycmF5LmlzQXJyYXkocmVjb3JkLmRhdGEuY2hpbGRbaV0uYXJlYU9mSW50ZXJlc3QpKXsNCiAgICAgICAgICAgICAgICAgICAgY2hpbGRBT0lOb3RBcnJheSA9IHRydWU7DQogICAgICAgICAgICAgICAgICAgIG5yZWMuY2hpbGRBT0lOb3RBcnJheSA9IGNoaWxkQU9JTm90QXJyYXk7DQogICAgICAgICAgICAgICAgfQ0KICAgICAgICAgICAgfSAgDQogICAgICAgIH0NCiAgICB9DQogICAgaWYocmVjb3JkLmRhdGEuYXJlYU9mSW50ZXJlc3Qpew0KICAgICAgICBpZighQXJyYXkuaXNBcnJheShyZWNvcmQuZGF0YS5hcmVhT2ZJbnRlcmVzdCkpew0KICAgICAgICAgICAgYW9pTm90QXJyYXkgPSB0cnVlOw0KICAgICAgICAgICAgbnJlYy5hb2lOb3RBcnJheSA9IGFvaU5vdEFycmF5Ow0KICAgICAgICB9DQogICAgfQ0KICAgIGlmKHJlY29yZC5kYXRhLmV4dGVybmFsQXBwbGljYXRpb24pew0KICAgICAgICBpZighQXJyYXkuaXNBcnJheShyZWNvcmQuZGF0YS5leHRlcm5hbEFwcGxpY2F0aW9uKSl7DQogICAgICAgICAgICBleHRBcHBOb3RBcnJheSA9IHRydWU7DQogICAgICAgICAgICBucmVjLmV4dEFwcE5vdEFycmF5ID0gZXh0QXBwTm90QXJyYXk7DQogICAgICAgIH0NCiAgICAgICAgZWxzZXsNCiAgICAgICAgICAgIGZvcihsZXQgaT0gMDsgaSA8IHJlY29yZC5kYXRhLmV4dGVybmFsQXBwbGljYXRpb24ubGVuZ3RoOyBpKyspew0KICAgICAgICAgICAgICAgIGlmKHJlY29yZC5kYXRhLmV4dGVybmFsQXBwbGljYXRpb25baV0uYXBwbGljYXRpb25Db2RlICYmIHR5cGVvZiByZWNvcmQuZGF0YS5leHRlcm5hbEFwcGxpY2F0aW9uW2ldLmFwcGxpY2F0aW9uQ29kZSAhPT0gInN0cmluZyIpew0KICAgICAgICAgICAgICAgICAgICBleHRBcHBDb2RlTm90U3RyaW5nID0gdHJ1ZTsNCiAgICAgICAgICAgICAgICAgICAgbnJlYy5leHRBcHBDb2RlTm90U3RyaW5nID0gZXh0QXBwQ29kZU5vdFN0cmluZzsNCiAgICAgICAgICAgICAgICAgICAgbnJlYy5kYXRhLmV4dGVybmFsQXBwbGljYXRpb24gPSByZWNvcmQuZGF0YS5leHRlcm5hbEFwcGxpY2F0aW9uOw0KICAgICAgICAgICAgICAgIH0NCiAgICAgICAgICAgIH0NCiAgICAgICAgfQ0KICAgIH0NCiAgICANCiAgICBpZihwZXROb3RBcnJheSB8fCBwZXRBT0lOb3RBcnJheSB8fCBjaGlsZE5vdEFycmF5IHx8IGNoaWxkQU9JTm90QXJyYXkgfHwgYW9pTm90QXJyYXkgfHwgZXh0QXBwTm90QXJyYXkgfHwgZXh0QXBwQ29kZU5vdFN0cmluZykgcmV0dXJuIG5yZWM7DQp9",
+            "ECMAScriptVersion": "12",
+            "notifyLastRecord": false
+          },
+          "next": [
+            "file.format.json"
+          ]
+        },
+        {
+          "id": "file.format.json",
+          "type": "file.format.json",
+          "params": {
+            "fileName": "MX_importIssueMSCND-32209_${now}.json",
+            "maxFileSize": 1000,
+            "createEmptyFile": false
+          },
+          "next": [
+            "amazon.s3"
+          ]
+        },
+        {
+          "id": "amazon.s3",
+          "type": "datasource.write.amazon.s3",
+          "params": {
+            "bucketName": "gigya-etl-eu",
+            "accessKey": "AKIAJYPKIUMOHZOH4QZA",
+            "secretKey": "********",
+            "region": "not specified",
+            "objectKeyPrefix": "0781392d-b08f-4ee0-8e40-ef926698c00b/mx/MSCND-32209/"
+          }
+        }
+      ],
+      "version": 1,
+      "createTime": "2025-01-09T10:01:54.923Z",
+      "updateTime": "2025-01-09T10:01:54.923Z",
+      "updatedByName": "Tiago Gaspar",
+      "updatedByEmail": "tiago.gaspar@sap.com"
+    },
+    {
+      "apiKey": "4_3zsvwuLLkw5lIWpNyFDvug",
+      "siteId": 992976294236,
+      "id": "7f2c97ca8d934ce9824b141f0bcbac25",
+      "name": "Count logins - using get and set session parameters",
+      "status": "draft",
+      "description": "Get count of logins performed by user, using audit.search API. Add the apiKey, userKey and secret in the first step.",
+      "steps": [
+        {
+          "id": "2. logic to get the count",
+          "type": "record.evaluate",
+          "params": {
+            "script": "ZnVuY3Rpb24gcHJvY2VzcyhyZWNvcmQsIGN0eCwgbG9nZ2VyLCBuZXh0KSB7DQogICAgLy93aGVuIGlzIHRoZSBsYXN0IHJlY29yZCBmcm9tIHRoZSBhdWRpdC5zZWFyY2gsIGl0IHdpbGwgcmV0dXJuIG51bGwgKG5vdGlmeUxhc3RSZWNvcmQgPSB0cnVlKQ0KICAgIC8vaWYgaXMgdGhlIGxhc3QgcmVjb3JkLCByZXR1cm4gdGhlIGNvdW50IG9mIGFjY291bnQgbG9naW5zIGZyb20gdGhlIHNlc3Npb24gcGFyYW1ldGVyDQogICAgaWYocmVjb3JkPT09bnVsbCl7DQogICAgICAgIHJldHVybiBjdHguZ2V0U2Vzc2lvblBhcmFtZXRlcigiYWNjb3VudExvZ2luIik7DQogICAgfQ0KICAgIC8vaWYgdGhlcmUgaXMgbm8gYXJyYXkgaW4gdGhlIHNlc3Npb24sIGNyZWF0ZSBzZXNzaW9uIHBhcmFtZXRlciB3aXRoIGFuIGFycmF5LCBhZGRpbmcgdGhlIGZpcnN0IFVJRA0KICAgIGlmKCFjdHguZ2V0U2Vzc2lvblBhcmFtZXRlcigiYWNjb3VudExvZ2luIikpDQogICAgeyAgIA0KICAgICAgICBsZXQgYWNjb3VudExvZ2luID0gW107DQogICAgICAgIGxldCBvYmogPSB7fTsNCiAgICAgICAgb2JqLlVJRCA9IHJlY29yZC51aWQ7DQogICAgICAgIG9iai5jb3VudExvZ2luID0gMTsNCiAgICAgICAgYWNjb3VudExvZ2luLnB1c2gob2JqKTsNCiAgICAgICAgY3R4LnNldFNlc3Npb25QYXJhbWV0ZXIoImFjY291bnRMb2dpbiIsYWNjb3VudExvZ2luKTsNCiAgICB9DQogICAgLy9pZiBhcnJheSBpcyBhbHJlYWR5IGluIHNlc3Npb24sIHJldHVybiBhcnJheQ0KICAgIGVsc2UNCiAgICB7DQogICAgICAgIHJlY29yZC5hY2NvdW50TG9naW4gPSBjdHguZ2V0U2Vzc2lvblBhcmFtZXRlcigiYWNjb3VudExvZ2luIik7DQogICAgICAgIGxldCBpbmRleCA9ICByZWNvcmQuYWNjb3VudExvZ2luLmZpbmRJbmRleCh4ID0+IHguVUlEID09PSByZWNvcmQudWlkKTsNCiAgICAgICAgLy9pZiBVSUQgYWxyZWFkeSBleGlzdHMgaW4gdGhlIGFycmF5LCBpbmNyZXNlIHRoZSBjb3VudExvZ2luDQogICAgICAgIGlmKGluZGV4ICE9PSAtMSl7DQogICAgICAgICAgICByZWNvcmQuYWNjb3VudExvZ2luW2luZGV4XS5jb3VudExvZ2luKys7DQogICAgICAgICAgICBjdHguc2V0U2Vzc2lvblBhcmFtZXRlcigiYWNjb3VudExvZ2luIiwgcmVjb3JkLmFjY291bnRMb2dpbik7DQogICAgICAgIH0NCiAgICAgICAgLy9pZiBVSUQgZG9lc24ndCBleGlzdCBpbiB0aGUgYXJyYXksIGFkZCBhIG5ldyBlbnRyeSBpbiB0aGUgYXJyYXkNCiAgICAgICAgZWxzZXsNCiAgICAgICAgICAgIGxldCBvYmogPSB7fTsNCiAgICAgICAgICAgIG9iai5VSUQgPSByZWNvcmQudWlkOw0KICAgICAgICAgICAgb2JqLmNvdW50TG9naW4gPSAxOw0KICAgICAgICAgICAgbGV0IGF1eEFyciA9IFtdOw0KICAgICAgICAgICAgbGV0IHJlY0FyciA9ICByZWNvcmQuYWNjb3VudExvZ2luOw0KICAgICAgICAgICAgZm9yIChsZXQgaT0wOyBpPCByZWNBcnIubGVuZ3RoOyBpKyspew0KICAgICAgICAgICAgICAgIGF1eEFyci5wdXNoKHJlY0FycltpXSk7DQogICAgICAgICAgICB9DQogICAgICAgICAgICBhdXhBcnIucHVzaChvYmopOw0KICAgICAgICAgICAgY3R4LnNldFNlc3Npb25QYXJhbWV0ZXIoImFjY291bnRMb2dpbiIsIGF1eEFycik7DQogICAgICAgIH0NCiAgICB9DQogICAgZGVsZXRlIHJlY29yZC51aWQ7DQogICAgDQp9",
+            "ECMAScriptVersion": "12",
+            "notifyLastRecord": true
+          },
+          "next": [
+            "3. file.format.json"
+          ]
+        },
+        {
+          "id": "4. amazon.s3",
+          "type": "datasource.write.amazon.s3",
+          "params": {
+            "bucketName": "gigya-etl-eu",
+            "accessKey": "AKIAJYPKIUMOHZOH4QZA",
+            "secretKey": "********",
+            "region": "not specified",
+            "objectKeyPrefix": "0781392d-b08f-4ee0-8e40-ef926698c00b/it/MSCND-7958/"
+          }
+        },
+        {
+          "id": "0. gigya.audit",
+          "type": "datasource.read.gigya.audit",
+          "params": {
+            "select": "*",
+            "deltaField": "@timestamp",
+            "from": "audit",
+            "where": "errCode = \"0\" AND (endpoint in (\"accounts.login\", \"accounts.notifyLogin\", \"fidm.saml.sp.acs\", \"otp.login\"))",
+            "keepFieldNamesWithDotAsIs": false
+          },
+          "next": [
+            "1. field.select"
+          ]
+        },
+        {
+          "id": "1. field.select",
+          "type": "field.select",
+          "params": {
+            "fields": [
+              "uid"
+            ]
+          },
+          "next": [
+            "2. logic to get the count"
+          ]
+        },
+        {
+          "id": "3. file.format.json",
+          "type": "file.format.json",
+          "params": {
+            "fileName": "IT_dolceGustoPromozioni_countAccountLogin_${now}.json",
+            "maxFileSize": 5000,
+            "createEmptyFile": false
+          },
+          "next": [
+            "4. amazon.s3"
+          ]
+        }
+      ],
+      "version": 1,
+      "createTime": "2025-01-09T10:01:54.689Z",
+      "updateTime": "2025-01-09T10:01:54.689Z",
+      "updatedByName": "Tiago Gaspar",
+      "updatedByEmail": "tiago.gaspar@sap.com"
+    }
+  ],
+  "totalCount": null
+}
