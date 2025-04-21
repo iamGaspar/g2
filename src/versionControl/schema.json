@@ -1,13 +1,19 @@
 {
-  "callId": "050be194b99a42ad8afa7e1599d55338",
-  "context": "{\"id\":\"schema\",\"targetApiKey\":\"4_B9XQnwui5cazybbc8YXM9A\"}",
-  "errorCode": 0,
-  "apiVersion": 2,
-  "statusCode": 200,
-  "statusReason": "OK",
-  "time": "2025-04-21T11:18:30.427Z",
   "profileSchema": {
     "fields": {
+      "activities": {
+        "required": true,
+        "type": "string",
+        "allowNull": true,
+        "writeAccess": "serverOnly"
+      },
+      "photoURL": {
+        "required": true,
+        "type": "string",
+        "allowNull": true,
+        "writeAccess": "serverOnly",
+        "encrypt": "AES"
+      },
       "education.startYear": {
         "required": false,
         "type": "long",
@@ -19,13 +25,6 @@
         "type": "string",
         "allowNull": true,
         "writeAccess": "serverOnly"
-      },
-      "photoURL": {
-        "required": false,
-        "type": "string",
-        "allowNull": true,
-        "writeAccess": "serverOnly",
-        "encrypt": "AES"
       },
       "education.school": {
         "required": false,
@@ -765,12 +764,6 @@
         "writeAccess": "serverOnly"
       },
       "lastLoginLocation.state": {
-        "required": false,
-        "type": "string",
-        "allowNull": true,
-        "writeAccess": "serverOnly"
-      },
-      "activities": {
         "required": false,
         "type": "string",
         "allowNull": true,
