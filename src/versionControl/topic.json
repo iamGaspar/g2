@@ -1,0 +1,54 @@
+{
+  "callId": "e7cfc00337bf41e9a579bb226fe916c1",
+  "context": "{}",
+  "errorCode": 0,
+  "errorDetails": "",
+  "apiVersion": 2,
+  "statusCode": 200,
+  "statusReason": "OK",
+  "time": "2025-04-21T11:18:30.443Z",
+  "results": [
+    {
+      "topicChannelId": "TopicChannelTest2",
+      "channel": "Email",
+      "topic": "topicTestsegundo",
+      "description": "",
+      "lastModified": "2025-01-07T14:34:59.239Z"
+    },
+    {
+      "topicChannelId": "testTopicChannel4",
+      "channel": "testChannel4",
+      "topic": "testTopic4",
+      "description": "",
+      "lastModified": "2025-01-08T11:42:33.233Z"
+    },
+    {
+      "topicChannelId": "topictest2",
+      "channel": "TestChannel2",
+      "topic": "topicTest2",
+      "description": "",
+      "lastModified": "2025-01-07T14:34:59.202Z"
+    },
+    {
+      "schema": {
+        "properties": {
+          "optIn": {
+            "properties": {
+              "agentType": {
+                "type": "string"
+              }
+            },
+            "required": []
+          }
+        }
+      },
+      "topicChannelId": "Test3Channel",
+      "channel": "SMS",
+      "topic": "TEsteTopic3",
+      "description": "",
+      "lastModified": "2025-01-07T14:34:59.167Z"
+    }
+  ],
+  "objectsCount": 4,
+  "totalCount": 4
+}

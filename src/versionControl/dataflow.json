@@ -1,0 +1,626 @@
+{
+  "callId": "b952b109baa5414c9a93952be8c073e6",
+  "context": "{\"id\":\"dataflows_search\",\"targetApiKey\":\"4_B9XQnwui5cazybbc8YXM9A\"}",
+  "errorCode": 0,
+  "apiVersion": 2,
+  "statusCode": 200,
+  "statusReason": "OK",
+  "time": "2025-04-21T11:18:30.933Z",
+  "resultCount": 3,
+  "totalCount": 3,
+  "result": [
+    {
+      "apiKey": "4_B9XQnwui5cazybbc8YXM9A",
+      "siteId": 842481324452,
+      "id": "b6c31102b5a843bd9048ab896107d2a8",
+      "name": "Marketo_Dataflow_Outbound",
+      "status": "published",
+      "description": "account > rename > remove > marketo",
+      "steps": [
+        {
+          "id": "account",
+          "type": "datasource.read.gigya.account",
+          "params": {
+            "select": "UID,profile.email,profile.firstName,profile.lastName,profile.likes",
+            "from": "accounts",
+            "deltaField": "lastUpdatedTimestamp",
+            "keepFieldNamesWithDotAsIs": false,
+            "batchSize": 300,
+            "maxConcurrency": 1
+          },
+          "next": [
+            "rename"
+          ]
+        },
+        {
+          "id": "rename",
+          "type": "field.rename",
+          "params": {
+            "fields": [
+              {
+                "sourceField": "UID",
+                "targetField": "gUID"
+              },
+              {
+                "sourceField": "profile.email",
+                "targetField": "email"
+              },
+              {
+                "sourceField": "profile.firstName",
+                "targetField": "firstName"
+              },
+              {
+                "sourceField": "profile.lastName",
+                "targetField": "lastName"
+              },
+              {
+                "sourceField": "profile.likes",
+                "targetField": "fblikes"
+              }
+            ]
+          },
+          "next": [
+            "remove"
+          ]
+        },
+        {
+          "id": "remove",
+          "type": "field.remove",
+          "params": {
+            "fields": [
+              "profile"
+            ]
+          },
+          "next": [
+            "marketo"
+          ]
+        },
+        {
+          "id": "marketo",
+          "type": "datasource.write.marketo",
+          "params": {
+            "baseUrl": "...",
+            "clientId": "...",
+            "clientSecret": "********",
+            "retryIntervalSeconds": 3,
+            "timeout": 60,
+            "maxConnections": 1
+          }
+        }
+      ],
+      "version": 1,
+      "createTime": "2024-12-26T09:00:03.73Z",
+      "updateTime": "2024-12-26T09:00:03.73Z",
+      "updatedByName": "Tiago Gaspar",
+      "updatedByEmail": "tiago.gaspar@sap.com"
+    },
+    {
+      "apiKey": "4_B9XQnwui5cazybbc8YXM9A",
+      "siteId": 842481324452,
+      "id": "3228c19afba344edb60de303cc80c9f0",
+      "name": "SAP Master Data Integration Service – Inbound",
+      "status": "published",
+      "description": "SAP Master Data Integration Service – Inbound",
+      "steps": [
+        {
+          "id": "Read from MDI",
+          "type": "datasource.read.mdi",
+          "params": {
+            "baseUrl": "",
+            "clientId": "",
+            "clientSecret": "********",
+            "accessTokenUrl": "",
+            "saveTokenField": "deltaTokenField",
+            "tokenFieldName": "deltaTokenField"
+          },
+          "next": [
+            "Filter person type"
+          ]
+        },
+        {
+          "id": "Filter person type",
+          "type": "record.evaluate",
+          "params": {
+            "script": "ZnVuY3Rpb24gcHJvY2VzcyhyZWNvcmQsIGN0eCwgbG9nZ2VyLCBuZXh0LCBlcnJvcikgew0KICAgIGlmIChyZWNvcmQuaW5zdGFuY2UgIT0gbnVsbCAmJiByZWNvcmQuaW5zdGFuY2UuYnVzaW5lc3NQYXJ0bmVyVHlwZSAhPSBudWxsICYmIHJlY29yZC5pbnN0YW5jZS5idXNpbmVzc1BhcnRuZXJUeXBlID09ICJwZXJzb24iKSB7DQogICAgICAgcmV0dXJuIHJlY29yZDsNCiAgICB9DQogICAgDQogICAgZXJyb3IuYWNjZXB0KHJlY29yZCwgcmVjb3JkKTsNCn0=",
+            "ECMAScriptVersion": "12",
+            "notifyLastRecord": false
+          },
+          "next": [
+            "Map MDI fields to CDC fields"
+          ],
+          "error": [
+            "Create ignored accounts file"
+          ]
+        },
+        {
+          "id": "Map MDI fields to CDC fields",
+          "type": "field.rename",
+          "params": {
+            "fields": [
+              {
+                "sourceField": "instance.person.nameDetails.lastName",
+                "targetField": "profile.lastName"
+              },
+              {
+                "sourceField": "instance.person.nameDetails.firstName",
+                "targetField": "profile.firstName"
+              }
+            ]
+          },
+          "next": [
+            "Lookup by MDI ID"
+          ],
+          "error": [
+            "Create ignored accounts file"
+          ]
+        },
+        {
+          "id": "Lookup by email",
+          "type": "datasource.lookup.gigya.account",
+          "params": {
+            "select": "profile.email, UID",
+            "handleFieldConflicts": "take_source",
+            "mismatchBehavior": "error",
+            "lookupFields": [
+              {
+                "sourceField": "profile.email",
+                "gigyaField": "profile.email"
+              }
+            ],
+            "lookupFieldsOperator": "OR",
+            "matchBehavior": "process",
+            "isCaseSensitive": true,
+            "maxConcurrency": 1,
+            "from": "accounts",
+            "batchSize": 200,
+            "separateMultiMatches": true,
+            "multiMatchBehavior": "error"
+          },
+          "next": [
+            "Update identifier"
+          ],
+          "error": [
+            "Create ignored accounts file"
+          ]
+        },
+        {
+          "id": "Update Gigya account",
+          "type": "datasource.write.gigya.account",
+          "params": {
+            "updatePolicy": "append",
+            "maxConnections": 10
+          },
+          "error": [
+            "Create ignored accounts file"
+          ]
+        },
+        {
+          "id": "Select fields",
+          "type": "field.select",
+          "params": {
+            "fields": [
+              "UID",
+              "profile.firstName",
+              "profile.lastName",
+              "profile.email"
+            ]
+          },
+          "next": [
+            "Update Gigya account"
+          ]
+        },
+        {
+          "id": "Create ignored accounts file",
+          "type": "file.format.json",
+          "params": {
+            "fileName": "errorsFile.json",
+            "maxFileSize": 5000,
+            "createEmptyFile": false
+          },
+          "next": [
+            "sftp"
+          ]
+        },
+        {
+          "id": "sftp",
+          "type": "datasource.write.sftp",
+          "params": {
+            "host": "",
+            "username": "",
+            "port": 22,
+            "timeout": 60,
+            "password": "********",
+            "remotePath": "",
+            "temporaryUploadExtension": false
+          }
+        },
+        {
+          "id": "Inject MDI DeltaToken",
+          "type": "datasource.read.sharedvariable",
+          "params": {
+            "targetField": "deltaTokenField",
+            "sharedVariableName": "deltaTokenField"
+          },
+          "next": [
+            "Read from MDI"
+          ]
+        },
+        {
+          "id": "Lookup by MDI ID",
+          "type": "datasource.lookup.gigya.account",
+          "params": {
+            "select": "*",
+            "handleFieldConflicts": "take_source",
+            "mismatchBehavior": "error",
+            "lookupFields": [
+              {
+                "sourceField": "instance.id",
+                "gigyaField": "identifiers.masterDataId"
+              }
+            ],
+            "lookupFieldsOperator": "OR",
+            "matchBehavior": "process",
+            "isCaseSensitive": true,
+            "maxConcurrency": 1,
+            "from": "accounts",
+            "batchSize": 200,
+            "separateMultiMatches": true,
+            "multiMatchBehavior": "error"
+          },
+          "next": [
+            "Save MDI account email to record"
+          ],
+          "error": [
+            "Filter by email"
+          ]
+        },
+        {
+          "id": "Filter by email",
+          "type": "record.evaluate",
+          "params": {
+            "script": "ZnVuY3Rpb24gcHJvY2VzcyhyZWNvcmQsIGN0eCwgbG9nZ2VyLCBuZXh0LCBlcnJvcikgew0KCWlmIChyZWNvcmQuaW5zdGFuY2UuYWRkcmVzc0RhdGEgIT0gbnVsbCAmJiByZWNvcmQuaW5zdGFuY2UuYWRkcmVzc0RhdGEubGVuZ3RoID4gMCkgew0KICAgIAlmb3IgKHZhciBhZGRyZXNzRGF0YSBvZiByZWNvcmQuaW5zdGFuY2UuYWRkcmVzc0RhdGEpIHsNCiAgICAJCWlmIChhZGRyZXNzRGF0YS5lbWFpbEFkZHJlc3NlcyAhPSBudWxsICYmIGFkZHJlc3NEYXRhLmVtYWlsQWRkcmVzc2VzLmxlbmd0aCA+IDApIHsNCiAgICAJCQlmb3IgKHZhciBlbWFpbEFkZHJlc3Mgb2YgYWRkcmVzc0RhdGEuZW1haWxBZGRyZXNzZXMpIHsNCiAgICAJCQkJaWYgKGVtYWlsQWRkcmVzcy5pc0RlZmF1bHQgPT0gdHJ1ZSAmJiBlbWFpbEFkZHJlc3MuYWRkcmVzcyAhPSBudWxsKSB7DQogICAgCQkJCSAgICByZWNvcmQuZGVmYXVsdEVtYWlsID0gZW1haWxBZGRyZXNzLmFkZHJlc3MNCiAgICAJCQkJCXJldHVybiByZWNvcmQ7DQogICAgCQkJCX0NCiAgICAJCQl9DQogICAgCQl9DQogICAgCX0NCgl9DQogICAgDQogICAgZXJyb3IuYWNjZXB0KHJlY29yZCwgcmVjb3JkKTsNCn0=",
+            "ECMAScriptVersion": "12",
+            "notifyLastRecord": false
+          },
+          "next": [
+            "Map MDI email field"
+          ],
+          "error": [
+            "Create ignored accounts file"
+          ]
+        },
+        {
+          "id": "Update identifier",
+          "type": "datasource.write.gigya.generic",
+          "params": {
+            "apiMethod": "accounts.identifiers.add",
+            "maxConnections": 10,
+            "addResponse": false,
+            "apiParams": [
+              {
+                "sourceField": "UID",
+                "paramName": "UID",
+                "value": ""
+              },
+              {
+                "sourceField": "",
+                "paramName": "schema",
+                "value": "gigya.com/identifiers/mdid"
+              },
+              {
+                "sourceField": "instance.id",
+                "paramName": "value",
+                "value": ""
+              }
+            ]
+          },
+          "next": [
+            "Select fields"
+          ],
+          "error": [
+            "Create ignored accounts file"
+          ]
+        },
+        {
+          "id": "Map MDI email field",
+          "type": "field.rename",
+          "params": {
+            "fields": [
+              {
+                "sourceField": "defaultEmail",
+                "targetField": "profile.email"
+              }
+            ]
+          },
+          "next": [
+            "Lookup by email"
+          ],
+          "error": [
+            "Create ignored accounts file"
+          ]
+        },
+        {
+          "id": "Save MDI account email to record",
+          "type": "record.evaluate",
+          "params": {
+            "script": "ZnVuY3Rpb24gcHJvY2VzcyhyZWNvcmQsIGN0eCwgbG9nZ2VyLCBuZXh0KSB7DQogICAgaWYgKHJlY29yZC5pbnN0YW5jZS5hZGRyZXNzRGF0YSAhPSBudWxsICYmIHJlY29yZC5pbnN0YW5jZS5hZGRyZXNzRGF0YS5sZW5ndGggPiAwKSB7DQogICAgCWZvciAodmFyIGFkZHJlc3NEYXRhIG9mIHJlY29yZC5pbnN0YW5jZS5hZGRyZXNzRGF0YSkgew0KICAgIAkJaWYgKGFkZHJlc3NEYXRhLmVtYWlsQWRkcmVzc2VzICE9IG51bGwgJiYgYWRkcmVzc0RhdGEuZW1haWxBZGRyZXNzZXMubGVuZ3RoID4gMCkgew0KICAgIAkJCWZvciAodmFyIGVtYWlsQWRkcmVzcyBvZiBhZGRyZXNzRGF0YS5lbWFpbEFkZHJlc3Nlcykgew0KICAgIAkJCQlpZiAoZW1haWxBZGRyZXNzLmlzRGVmYXVsdCA9PSB0cnVlICYmIGVtYWlsQWRkcmVzcy5hZGRyZXNzICE9IG51bGwpIHsNCiAgICAJCQkJICAgIHJlY29yZC5wcm9maWxlLmVtYWlsID0gZW1haWxBZGRyZXNzLmFkZHJlc3MNCiAgICAJCQkJCXJldHVybiByZWNvcmQ7DQogICAgCQkJCX0NCiAgICAJCQl9DQogICAgCQl9DQogICAgCX0NCgl9DQoJDQogICAgcmV0dXJuIHJlY29yZDsNCn0=",
+            "ECMAScriptVersion": "12",
+            "notifyLastRecord": false
+          },
+          "next": [
+            "Select fields"
+          ]
+        }
+      ],
+      "version": 1,
+      "createTime": "2025-01-02T09:28:25.756Z",
+      "updateTime": "2025-01-02T09:28:25.756Z",
+      "updatedByName": "Tiago Gaspar",
+      "updatedByEmail": "tiago.gaspar@sap.com"
+    },
+    {
+      "apiKey": "4_B9XQnwui5cazybbc8YXM9A",
+      "siteId": 842481324452,
+      "id": "a84f16a855b5481f805c05a64e32ba81",
+      "name": "SAP Master Data Integration Service – Inbound",
+      "status": "published",
+      "description": "SAP Master Data Integration Service – Inbound",
+      "steps": [
+        {
+          "id": "Read from MDI",
+          "type": "datasource.read.mdi",
+          "params": {
+            "baseUrl": "",
+            "clientId": "",
+            "clientSecret": "********",
+            "accessTokenUrl": "",
+            "saveTokenField": "deltaTokenField",
+            "tokenFieldName": "deltaTokenField"
+          },
+          "next": [
+            "Filter person type"
+          ]
+        },
+        {
+          "id": "Filter person type",
+          "type": "record.evaluate",
+          "params": {
+            "script": "ZnVuY3Rpb24gcHJvY2VzcyhyZWNvcmQsIGN0eCwgbG9nZ2VyLCBuZXh0LCBlcnJvcikgew0KICAgIGlmIChyZWNvcmQuaW5zdGFuY2UgIT0gbnVsbCAmJiByZWNvcmQuaW5zdGFuY2UuYnVzaW5lc3NQYXJ0bmVyVHlwZSAhPSBudWxsICYmIHJlY29yZC5pbnN0YW5jZS5idXNpbmVzc1BhcnRuZXJUeXBlID09ICJwZXJzb24iKSB7DQogICAgICAgcmV0dXJuIHJlY29yZDsNCiAgICB9DQogICAgDQogICAgZXJyb3IuYWNjZXB0KHJlY29yZCwgcmVjb3JkKTsNCn0=",
+            "ECMAScriptVersion": "12",
+            "notifyLastRecord": false
+          },
+          "next": [
+            "Map MDI fields to CDC fields"
+          ],
+          "error": [
+            "Create ignored accounts file"
+          ]
+        },
+        {
+          "id": "Map MDI fields to CDC fields",
+          "type": "field.rename",
+          "params": {
+            "fields": [
+              {
+                "sourceField": "instance.person.nameDetails.lastName",
+                "targetField": "profile.lastName"
+              },
+              {
+                "sourceField": "instance.person.nameDetails.firstName",
+                "targetField": "profile.firstName"
+              }
+            ]
+          },
+          "next": [
+            "Lookup by MDI ID"
+          ],
+          "error": [
+            "Create ignored accounts file"
+          ]
+        },
+        {
+          "id": "Lookup by email",
+          "type": "datasource.lookup.gigya.account",
+          "params": {
+            "select": "profile.email, UID",
+            "handleFieldConflicts": "take_source",
+            "mismatchBehavior": "error",
+            "lookupFields": [
+              {
+                "sourceField": "profile.email",
+                "gigyaField": "profile.email"
+              }
+            ],
+            "lookupFieldsOperator": "OR",
+            "matchBehavior": "process",
+            "isCaseSensitive": true,
+            "maxConcurrency": 1,
+            "from": "accounts",
+            "batchSize": 200,
+            "separateMultiMatches": true,
+            "multiMatchBehavior": "error"
+          },
+          "next": [
+            "Update identifier"
+          ],
+          "error": [
+            "Create ignored accounts file"
+          ]
+        },
+        {
+          "id": "Update Gigya account",
+          "type": "datasource.write.gigya.account",
+          "params": {
+            "updatePolicy": "append",
+            "maxConnections": 10
+          },
+          "error": [
+            "Create ignored accounts file"
+          ]
+        },
+        {
+          "id": "Select fields",
+          "type": "field.select",
+          "params": {
+            "fields": [
+              "UID",
+              "profile.firstName",
+              "profile.lastName",
+              "profile.email"
+            ]
+          },
+          "next": [
+            "Update Gigya account"
+          ]
+        },
+        {
+          "id": "Create ignored accounts file",
+          "type": "file.format.json",
+          "params": {
+            "fileName": "errorsFile.json",
+            "maxFileSize": 5000,
+            "createEmptyFile": false
+          },
+          "next": [
+            "sftp"
+          ]
+        },
+        {
+          "id": "sftp",
+          "type": "datasource.write.sftp",
+          "params": {
+            "host": "",
+            "username": "",
+            "port": 22,
+            "timeout": 60,
+            "password": "********",
+            "remotePath": "",
+            "temporaryUploadExtension": false
+          }
+        },
+        {
+          "id": "Inject MDI DeltaToken",
+          "type": "datasource.read.sharedvariable",
+          "params": {
+            "targetField": "deltaTokenField",
+            "sharedVariableName": "deltaTokenField"
+          },
+          "next": [
+            "Read from MDI"
+          ]
+        },
+        {
+          "id": "Lookup by MDI ID",
+          "type": "datasource.lookup.gigya.account",
+          "params": {
+            "select": "*",
+            "handleFieldConflicts": "take_source",
+            "mismatchBehavior": "error",
+            "lookupFields": [
+              {
+                "sourceField": "instance.id",
+                "gigyaField": "identifiers.masterDataId"
+              }
+            ],
+            "lookupFieldsOperator": "OR",
+            "matchBehavior": "process",
+            "isCaseSensitive": true,
+            "maxConcurrency": 1,
+            "from": "accounts",
+            "batchSize": 200,
+            "separateMultiMatches": true,
+            "multiMatchBehavior": "error"
+          },
+          "next": [
+            "Save MDI account email to record"
+          ],
+          "error": [
+            "Filter by email"
+          ]
+        },
+        {
+          "id": "Filter by email",
+          "type": "record.evaluate",
+          "params": {
+            "script": "ZnVuY3Rpb24gcHJvY2VzcyhyZWNvcmQsIGN0eCwgbG9nZ2VyLCBuZXh0LCBlcnJvcikgew0KCWlmIChyZWNvcmQuaW5zdGFuY2UuYWRkcmVzc0RhdGEgIT0gbnVsbCAmJiByZWNvcmQuaW5zdGFuY2UuYWRkcmVzc0RhdGEubGVuZ3RoID4gMCkgew0KICAgIAlmb3IgKHZhciBhZGRyZXNzRGF0YSBvZiByZWNvcmQuaW5zdGFuY2UuYWRkcmVzc0RhdGEpIHsNCiAgICAJCWlmIChhZGRyZXNzRGF0YS5lbWFpbEFkZHJlc3NlcyAhPSBudWxsICYmIGFkZHJlc3NEYXRhLmVtYWlsQWRkcmVzc2VzLmxlbmd0aCA+IDApIHsNCiAgICAJCQlmb3IgKHZhciBlbWFpbEFkZHJlc3Mgb2YgYWRkcmVzc0RhdGEuZW1haWxBZGRyZXNzZXMpIHsNCiAgICAJCQkJaWYgKGVtYWlsQWRkcmVzcy5pc0RlZmF1bHQgPT0gdHJ1ZSAmJiBlbWFpbEFkZHJlc3MuYWRkcmVzcyAhPSBudWxsKSB7DQogICAgCQkJCSAgICByZWNvcmQuZGVmYXVsdEVtYWlsID0gZW1haWxBZGRyZXNzLmFkZHJlc3MNCiAgICAJCQkJCXJldHVybiByZWNvcmQ7DQogICAgCQkJCX0NCiAgICAJCQl9DQogICAgCQl9DQogICAgCX0NCgl9DQogICAgDQogICAgZXJyb3IuYWNjZXB0KHJlY29yZCwgcmVjb3JkKTsNCn0=",
+            "ECMAScriptVersion": "12",
+            "notifyLastRecord": false
+          },
+          "next": [
+            "Map MDI email field"
+          ],
+          "error": [
+            "Create ignored accounts file"
+          ]
+        },
+        {
+          "id": "Update identifier",
+          "type": "datasource.write.gigya.generic",
+          "params": {
+            "apiMethod": "accounts.identifiers.add",
+            "maxConnections": 10,
+            "addResponse": false,
+            "apiParams": [
+              {
+                "sourceField": "UID",
+                "paramName": "UID",
+                "value": ""
+              },
+              {
+                "sourceField": "",
+                "paramName": "schema",
+                "value": "gigya.com/identifiers/mdid"
+              },
+              {
+                "sourceField": "instance.id",
+                "paramName": "value",
+                "value": ""
+              }
+            ]
+          },
+          "next": [
+            "Select fields"
+          ],
+          "error": [
+            "Create ignored accounts file"
+          ]
+        },
+        {
+          "id": "Map MDI email field",
+          "type": "field.rename",
+          "params": {
+            "fields": [
+              {
+                "sourceField": "defaultEmail",
+                "targetField": "profile.email"
+              }
+            ]
+          },
+          "next": [
+            "Lookup by email"
+          ],
+          "error": [
+            "Create ignored accounts file"
+          ]
+        },
+        {
+          "id": "Save MDI account email to record",
+          "type": "record.evaluate",
+          "params": {
+            "script": "ZnVuY3Rpb24gcHJvY2VzcyhyZWNvcmQsIGN0eCwgbG9nZ2VyLCBuZXh0KSB7DQogICAgaWYgKHJlY29yZC5pbnN0YW5jZS5hZGRyZXNzRGF0YSAhPSBudWxsICYmIHJlY29yZC5pbnN0YW5jZS5hZGRyZXNzRGF0YS5sZW5ndGggPiAwKSB7DQogICAgCWZvciAodmFyIGFkZHJlc3NEYXRhIG9mIHJlY29yZC5pbnN0YW5jZS5hZGRyZXNzRGF0YSkgew0KICAgIAkJaWYgKGFkZHJlc3NEYXRhLmVtYWlsQWRkcmVzc2VzICE9IG51bGwgJiYgYWRkcmVzc0RhdGEuZW1haWxBZGRyZXNzZXMubGVuZ3RoID4gMCkgew0KICAgIAkJCWZvciAodmFyIGVtYWlsQWRkcmVzcyBvZiBhZGRyZXNzRGF0YS5lbWFpbEFkZHJlc3Nlcykgew0KICAgIAkJCQlpZiAoZW1haWxBZGRyZXNzLmlzRGVmYXVsdCA9PSB0cnVlICYmIGVtYWlsQWRkcmVzcy5hZGRyZXNzICE9IG51bGwpIHsNCiAgICAJCQkJICAgIHJlY29yZC5wcm9maWxlLmVtYWlsID0gZW1haWxBZGRyZXNzLmFkZHJlc3MNCiAgICAJCQkJCXJldHVybiByZWNvcmQ7DQogICAgCQkJCX0NCiAgICAJCQl9DQogICAgCQl9DQogICAgCX0NCgl9DQoJDQogICAgcmV0dXJuIHJlY29yZDsNCn0=",
+            "ECMAScriptVersion": "12",
+            "notifyLastRecord": false
+          },
+          "next": [
+            "Select fields"
+          ]
+        }
+      ],
+      "version": 1,
+      "createTime": "2025-01-03T14:40:11.778Z",
+      "updateTime": "2025-01-03T14:40:11.778Z",
+      "updatedByName": "Tiago Gaspar",
+      "updatedByEmail": "tiago.gaspar@sap.com"
+    }
+  ]
+}

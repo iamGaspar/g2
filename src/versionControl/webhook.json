@@ -1,0 +1,46 @@
+{
+  "callId": "13a27d6b33104f9e97752238d30bae75",
+  "context": "{\"id\":\"webhook\",\"targetApiKey\":\"4_B9XQnwui5cazybbc8YXM9A\"}",
+  "errorCode": 0,
+  "apiVersion": 2,
+  "statusCode": 200,
+  "statusReason": "OK",
+  "time": "2025-04-21T11:18:30.449Z",
+  "webhooks": [
+    {
+      "url": "https://www.google.com/",
+      "name": "test",
+      "active": true,
+      "events": [
+        "accountProgressed"
+      ],
+      "useXfCredentials": false,
+      "headers": [],
+      "version": "3.0",
+      "product": "UserManagement",
+      "id": "5d6f6b94-fb4c-40a3-96d2-595f5b1eb22c",
+      "include": [],
+      "urlType": "Http"
+    },
+    {
+      "url": "https://www.xpto.com/",
+      "name": "teste20",
+      "active": true,
+      "events": [
+        "groupCreated"
+      ],
+      "useXfCredentials": false,
+      "headers": [
+        {
+          "name": "cenas",
+          "value": "teste"
+        }
+      ],
+      "version": "3.0",
+      "product": "UserManagement",
+      "id": "1bc9db9e-3b15-4453-8d76-12902048973c",
+      "include": [],
+      "urlType": "Http"
+    }
+  ]
+}

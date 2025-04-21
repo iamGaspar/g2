@@ -1,0 +1,102 @@
+{
+  "callId": "8eb95625983c437598bb5ba95407ac8a",
+  "context": "{\"id\":\"consent_consentStatement_get\",\"targetApiKey\":\"4_B9XQnwui5cazybbc8YXM9A\"}",
+  "errorCode": 0,
+  "apiVersion": 2,
+  "statusCode": 200,
+  "statusReason": "OK",
+  "time": "2025-04-21T11:18:30.452Z",
+  "preferences": {
+    "terms.cenas1": {
+      "isActive": false,
+      "isMandatory": true,
+      "langs": [
+        "en"
+      ],
+      "consentVaultRetentionPeriod": 36,
+      "enforceLocaleReconsent": true,
+      "writeAccess": "clientModify",
+      "legalStatements": {}
+    },
+    "terms.cenas2": {
+      "isActive": false,
+      "isMandatory": true,
+      "langs": [
+        "en",
+        "zh-cn"
+      ],
+      "consentVaultRetentionPeriod": 36,
+      "enforceLocaleReconsent": true,
+      "writeAccess": "clientModify",
+      "legalStatements": {}
+    },
+    "terms.3": {
+      "isActive": false,
+      "isMandatory": true,
+      "langs": [
+        "en"
+      ],
+      "consentVaultRetentionPeriod": 36,
+      "enforceLocaleReconsent": true,
+      "writeAccess": "clientModify",
+      "legalStatements": {}
+    },
+    "privacy.cenas2": {
+      "isActive": false,
+      "isMandatory": true,
+      "langs": [
+        "zh-hk"
+      ],
+      "consentVaultRetentionPeriod": 36,
+      "enforceLocaleReconsent": true,
+      "writeAccess": "clientModify",
+      "legalStatements": {}
+    },
+    "terms.cenas5": {
+      "isActive": false,
+      "isMandatory": true,
+      "langs": [
+        "en",
+        "ca"
+      ],
+      "consentVaultRetentionPeriod": 36,
+      "enforceLocaleReconsent": true,
+      "writeAccess": "clientModify",
+      "legalStatements": {}
+    },
+    "privacy.cenas1": {
+      "isActive": false,
+      "isMandatory": true,
+      "langs": [
+        "ar"
+      ],
+      "consentVaultRetentionPeriod": 36,
+      "enforceLocaleReconsent": true,
+      "writeAccess": "clientModify",
+      "legalStatements": {}
+    },
+    "terms.teste": {
+      "isActive": false,
+      "isMandatory": true,
+      "langs": [
+        "en"
+      ],
+      "consentVaultRetentionPeriod": 36,
+      "enforceLocaleReconsent": true,
+      "writeAccess": "clientModify",
+      "legalStatements": {
+        "en": {
+          "currentDocVersion": 1,
+          "minDocVersion": 1,
+          "versions": {
+            "1": {
+              "purpose": "",
+              "documentUrl": "www.gooogle.pt",
+              "LegalStatementStatus": "Draft"
+            }
+          }
+        }
+      }
+    }
+  }
+}

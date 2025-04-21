@@ -1,0 +1,39 @@
+{
+  "callId": "f6e2e3b9e81e45dbb47c0d498b2e57f4",
+  "context": "{\"id\":\"extensions\",\"targetApiKey\":\"4_B9XQnwui5cazybbc8YXM9A\"}",
+  "errorCode": 0,
+  "apiVersion": 2,
+  "statusCode": 200,
+  "statusReason": "OK",
+  "time": "2025-04-21T11:18:30.436Z",
+  "result": [
+    {
+      "created": "2024-12-07T16:28:20.7458799Z",
+      "lastModified": "2025-01-02T09:26:55.6688519Z",
+      "extensionFuncUrl": "https://www.cenasfixesenaomas.pt",
+      "description": "",
+      "timeout": 1000,
+      "fallback": "IgnoreAllErrors",
+      "headers": [],
+      "integration": "Generic",
+      "id": "0e6efdbf8d2b4bdeb0ef8f2e4abd564f",
+      "extensionPoint": "OnBeforeAccountsRegister",
+      "friendlyName": "TEST",
+      "enabled": true
+    },
+    {
+      "created": "2024-12-09T08:33:08.8884277Z",
+      "lastModified": "2025-01-02T09:26:55.7727187Z",
+      "extensionFuncUrl": "https://www.xpto.pt",
+      "description": "cenas",
+      "timeout": 1000,
+      "fallback": "IgnoreAllErrors",
+      "headers": [],
+      "integration": "Generic",
+      "id": "67ca6c24d7d7466fbfac19cffd4d02a9",
+      "extensionPoint": "OnBeforeAccountsLogin",
+      "friendlyName": "test2",
+      "enabled": false
+    }
+  ]
+}
