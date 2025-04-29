@@ -1,8 +1,8 @@
-{
-  "0": {
+[
+  {
     "Enabled": false
   },
-  "1": {
+  {
     "registration": {
       "requireCaptcha": true,
       "requireSecurityQuestion": true,
@@ -181,7 +181,7 @@
       }
     }
   },
-  "2": {
+  {
     "policy": {
       "commonRules": [],
       "rulesSets": [
@@ -197,4 +197,4 @@
       "allowOverrideMode": "no"
     }
   }
-}
+]
